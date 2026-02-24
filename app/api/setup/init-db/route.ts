@@ -8,17 +8,7 @@ import pool from '@/lib/db';
  * 
  * SECURITY: This endpoint is idempotent — re-running it will reset all data.
  */
-
-// TEMPORARY: Allow GET so stakeholder can trigger from browser. Revert to POST-only after confirmation.
-export async function GET() {
-  return initDb();
-}
-
 export async function POST() {
-  return initDb();
-}
-
-async function initDb() {
   const client = await pool.connect();
 
   try {
