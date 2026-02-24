@@ -338,6 +338,29 @@
       "no_results": "No tutors found",
       "no_results_hint": "Try adjusting your filters or search terms.",
       "result_count": "{count} tutor(s) found"
+    },
+    "booking": {
+      "modal_title": "Book a Session",
+      "name_label": "Your Name",
+      "name_placeholder": "Enter your full name",
+      "subject_label": "Subject",
+      "duration_label": "Duration",
+      "note_label": "Your Needs",
+      "note_placeholder": "Describe your specific needs (e.g. Help with quadratic equations)",
+      "district_label": "Your District",
+      "district_placeholder": "Enter your district",
+      "district_match": "This tutor covers your area!",
+      "district_mismatch": "This tutor may not cover your area. You can still send a request.",
+      "send_request": "Send Request",
+      "sending": "Sending...",
+      "success": "Request Sent!",
+      "expertise_areas": "expertise areas",
+      "subjects": "Subjects",
+      "service_areas": "Service Areas",
+      "calendar_title": "Weekly Availability",
+      "legend_available": "Available",
+      "legend_pending": "Pending",
+      "legend_booked": "Booked"
     }
   }
 }

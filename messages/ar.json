@@ -339,5 +339,30 @@
       "delete_confirm": "حذف نهائياً",
       "delete_deleting": "...جاري الحذف"
     }
+  },
+  "student_flow": {
+    "booking": {
+      "modal_title": "حجز جلسة",
+      "name_label": "اسمك",
+      "name_placeholder": "أدخل اسمك الكامل",
+      "subject_label": "المادة",
+      "duration_label": "المدة",
+      "note_label": "احتياجاتك",
+      "note_placeholder": "صف احتياجاتك المحددة (مثال: مساعدة في المعادلات التربيعية)",
+      "district_label": "منطقتك",
+      "district_placeholder": "أدخل منطقتك",
+      "district_match": "هذا المعلم يغطي منطقتك!",
+      "district_mismatch": "قد لا يغطي هذا المعلم منطقتك. يمكنك إرسال طلب على أي حال.",
+      "send_request": "إرسال الطلب",
+      "sending": "...جاري الإرسال",
+      "success": "!تم إرسال الطلب",
+      "expertise_areas": "مجالات الخبرة",
+      "subjects": "المواد",
+      "service_areas": "مناطق الخدمة",
+      "calendar_title": "التوفر الأسبوعي",
+      "legend_available": "متاح",
+      "legend_pending": "معلق",
+      "legend_booked": "محجوز"
+    }
   }
 }

@@ -187,6 +187,17 @@ export async function POST() {
         created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
         UNIQUE(tutor_id, district_id)
       );
+
+      CREATE TABLE IF NOT EXISTS tutor_notifications (
+        id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+        tutor_id UUID NOT NULL REFERENCES tutors(id) ON DELETE CASCADE,
+        type TEXT NOT NULL DEFAULT 'booking_request',
+        title TEXT NOT NULL,
+        body TEXT,
+        lesson_id UUID REFERENCES lessons(id) ON DELETE SET NULL,
+        read BOOLEAN NOT NULL DEFAULT false,
+        created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+      );
     `);
 
     // ── Step 3: Create indexes ──
@@ -198,6 +209,7 @@ export async function POST() {
       CREATE INDEX IF NOT EXISTS idx_ratings_tutor_id ON ratings(tutor_id);
       CREATE INDEX IF NOT EXISTS idx_link_tokens_hash ON link_tokens(token_hash);
       CREATE INDEX IF NOT EXISTS idx_service_areas_tutor_id ON tutor_service_areas(tutor_id);
+      CREATE INDEX IF NOT EXISTS idx_notifications_tutor_id ON tutor_notifications(tutor_id);
     `);
 
     // ── Step 4: Seed demo data ──

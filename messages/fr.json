@@ -339,5 +339,30 @@
       "delete_confirm": "Supprimer définitivement",
       "delete_deleting": "Suppression..."
     }
+  },
+  "student_flow": {
+    "booking": {
+      "modal_title": "Réserver une séance",
+      "name_label": "Votre nom",
+      "name_placeholder": "Entrez votre nom complet",
+      "subject_label": "Matière",
+      "duration_label": "Durée",
+      "note_label": "Vos besoins",
+      "note_placeholder": "Décrivez vos besoins spécifiques (ex: aide avec les équations quadratiques)",
+      "district_label": "Votre quartier",
+      "district_placeholder": "Entrez votre quartier",
+      "district_match": "Ce tuteur couvre votre zone !",
+      "district_mismatch": "Ce tuteur ne couvre peut-être pas votre zone. Vous pouvez quand même envoyer une demande.",
+      "send_request": "Envoyer la demande",
+      "sending": "Envoi en cours...",
+      "success": "Demande envoyée !",
+      "expertise_areas": "domaines d'expertise",
+      "subjects": "Matières",
+      "service_areas": "Zones de service",
+      "calendar_title": "Disponibilité hebdomadaire",
+      "legend_available": "Disponible",
+      "legend_pending": "En attente",
+      "legend_booked": "Réservé"
+    }
   }
 }
