@@ -27,19 +27,12 @@ export default function CategoryBar({ selected, onSelect }: CategoryBarProps) {
                     <button
                         key={cat.key}
                         onClick={() => onSelect(cat.enum)}
-                        className="flex-shrink-0 flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold transition-all whitespace-nowrap"
-                        style={{
-                            scrollSnapAlign: 'start',
-                            background: isActive
-                                ? 'linear-gradient(135deg, #2563eb, #7c3aed)'
-                                : 'rgba(255,255,255,0.06)',
-                            color: isActive ? '#fff' : 'rgba(255,255,255,0.6)',
-                            border: isActive
-                                ? '1px solid rgba(59,130,246,0.4)'
-                                : '1px solid rgba(255,255,255,0.08)',
-                            boxShadow: isActive ? '0 4px 16px rgba(37,99,235,0.25)' : 'none',
-                            transform: isActive ? 'scale(1.03)' : 'scale(1)',
-                        }}
+                        className={`flex-shrink-0 flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold transition-all whitespace-nowrap border
+              ${isActive
+                                ? 'bg-rizq-primary text-white border-rizq-primary shadow-lg shadow-rizq-primary/20 scale-[1.03]'
+                                : 'bg-rizq-surface-elevated text-rizq-text-muted border-rizq-border hover:bg-rizq-border'
+                            }`}
+                        style={{ scrollSnapAlign: 'start' }}
                     >
                         <span className="text-base">{cat.icon}</span>
                         {t(`categories.${cat.key}`)}

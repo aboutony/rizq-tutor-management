@@ -75,11 +75,8 @@ export default function StudentDashboard() {
         }
     }, [userLat, userLng, category, searchQuery, sort, minRating, availableToday]);
 
-    // Fetch on any filter change (debounced via SearchBar)
     useEffect(() => {
-        if (!showGeoModal) {
-            fetchTutors();
-        }
+        if (!showGeoModal) fetchTutors();
     }, [fetchTutors, showGeoModal]);
 
     useEffect(() => {
@@ -87,29 +84,20 @@ export default function StudentDashboard() {
     }, []);
 
     return (
-        <main
-            className="min-h-screen"
-            style={{
-                background: 'linear-gradient(160deg, #0a1628 0%, #0f2044 40%, #1a3a7a 70%, #2b1a5e 100%)',
-            }}
-        >
+        <main className="min-h-screen bg-rizq-surface transition-colors duration-300">
             {/* Geo Permission Modal */}
             {showGeoModal && (
                 <GeoPermissionModal onAllow={handleGeoAllow} onSkip={handleGeoSkip} />
             )}
 
             {/* ──── Header ──── */}
-            <header className="sticky top-0 z-40" style={{
-                background: 'rgba(10,22,40,0.85)',
-                backdropFilter: 'blur(20px)',
-                borderBottom: '1px solid rgba(255,255,255,0.06)',
-            }}>
+            <header className="sticky top-0 z-40 bg-rizq-surface/80 backdrop-blur-xl border-b border-rizq-border transition-colors duration-300">
                 <div className="max-w-lg mx-auto px-4 py-3 flex items-center justify-between">
                     <div>
-                        <h1 className="text-xl font-bold" style={{ color: '#60a5fa' }}>
+                        <h1 className="text-xl font-bold text-rizq-primary">
                             {tc('app_name')}
                         </h1>
-                        <p className="text-[10px] font-medium" style={{ color: 'rgba(255,255,255,0.35)' }}>
+                        <p className="text-[10px] font-medium text-rizq-text-muted">
                             {t('subtitle')}
                         </p>
                     </div>
@@ -142,18 +130,14 @@ export default function StudentDashboard() {
                             {[1, 2, 3].map((i) => (
                                 <div
                                     key={i}
-                                    className="rounded-2xl p-4 animate-pulse"
-                                    style={{
-                                        background: 'rgba(255,255,255,0.04)',
-                                        border: '1px solid rgba(255,255,255,0.06)',
-                                    }}
+                                    className="rounded-2xl p-4 animate-pulse bg-rizq-surface-elevated border border-rizq-border"
                                 >
                                     <div className="flex items-start gap-3">
-                                        <div className="w-12 h-12 rounded-xl" style={{ background: 'rgba(255,255,255,0.08)' }} />
+                                        <div className="w-12 h-12 rounded-xl bg-rizq-input-bg" />
                                         <div className="flex-1 space-y-2">
-                                            <div className="h-4 rounded-md w-32" style={{ background: 'rgba(255,255,255,0.08)' }} />
-                                            <div className="h-3 rounded-md w-48" style={{ background: 'rgba(255,255,255,0.06)' }} />
-                                            <div className="h-3 rounded-md w-24" style={{ background: 'rgba(255,255,255,0.04)' }} />
+                                            <div className="h-4 rounded-md w-32 bg-rizq-input-bg" />
+                                            <div className="h-3 rounded-md w-48 bg-rizq-border" />
+                                            <div className="h-3 rounded-md w-24 bg-rizq-border" />
                                         </div>
                                     </div>
                                 </div>
@@ -169,19 +153,13 @@ export default function StudentDashboard() {
                     {/* Empty state */}
                     {!loading && hasSearched && tutors.length === 0 && (
                         <div className="text-center py-12 space-y-3">
-                            <div
-                                className="w-16 h-16 mx-auto rounded-full flex items-center justify-center text-2xl"
-                                style={{
-                                    background: 'rgba(255,255,255,0.04)',
-                                    border: '1px solid rgba(255,255,255,0.06)',
-                                }}
-                            >
+                            <div className="w-16 h-16 mx-auto rounded-full flex items-center justify-center text-2xl bg-rizq-surface-elevated border border-rizq-border">
                                 🔍
                             </div>
-                            <p className="text-sm font-medium" style={{ color: 'rgba(255,255,255,0.5)' }}>
+                            <p className="text-sm font-medium text-rizq-text-muted">
                                 {t('no_results')}
                             </p>
-                            <p className="text-xs" style={{ color: 'rgba(255,255,255,0.3)' }}>
+                            <p className="text-xs text-rizq-text-muted/60">
                                 {t('no_results_hint')}
                             </p>
                         </div>
@@ -189,7 +167,7 @@ export default function StudentDashboard() {
 
                     {/* Result count */}
                     {!loading && tutors.length > 0 && (
-                        <p className="text-center text-[11px] pt-2" style={{ color: 'rgba(255,255,255,0.25)' }}>
+                        <p className="text-center text-[11px] pt-2 text-rizq-text-muted/60">
                             {t('result_count', { count: tutors.length })}
                         </p>
                     )}

@@ -31,23 +31,18 @@ export default function FilterControls({
 
     return (
         <div className="space-y-3">
-            {/* Row 1: Sort + Available Today */}
+            {/* Row 1: Sort toggles + Available Today */}
             <div className="flex items-center gap-2 flex-wrap">
-                {/* Price sort toggle */}
+                {/* Price sort */}
                 <button
                     onClick={() =>
                         onSortChange(sort === 'price_asc' ? 'price_desc' : sort === 'price_desc' ? 'rating' : 'price_asc')
                     }
-                    className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-semibold transition-all"
-                    style={{
-                        background: sort.startsWith('price_')
-                            ? 'rgba(34,197,94,0.15)'
-                            : 'rgba(255,255,255,0.06)',
-                        color: sort.startsWith('price_') ? '#4ade80' : 'rgba(255,255,255,0.5)',
-                        border: sort.startsWith('price_')
-                            ? '1px solid rgba(34,197,94,0.3)'
-                            : '1px solid rgba(255,255,255,0.08)',
-                    }}
+                    className={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-semibold transition-all border
+            ${sort.startsWith('price_')
+                            ? 'bg-rizq-success/10 text-rizq-success border-rizq-success/30'
+                            : 'bg-rizq-surface-elevated text-rizq-text-muted border-rizq-border'
+                        }`}
                 >
                     <span>{sort === 'price_desc' ? '↓' : '↑'}</span>
                     {t('sort_price')}
@@ -58,57 +53,41 @@ export default function FilterControls({
                 {/* Rating sort */}
                 <button
                     onClick={() => onSortChange(sort === 'rating' ? 'price_asc' : 'rating')}
-                    className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-semibold transition-all"
-                    style={{
-                        background: sort === 'rating' ? 'rgba(251,191,36,0.15)' : 'rgba(255,255,255,0.06)',
-                        color: sort === 'rating' ? '#fbbf24' : 'rgba(255,255,255,0.5)',
-                        border: sort === 'rating'
-                            ? '1px solid rgba(251,191,36,0.3)'
-                            : '1px solid rgba(255,255,255,0.08)',
-                    }}
+                    className={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-semibold transition-all border
+            ${sort === 'rating'
+                            ? 'bg-rizq-warning/10 text-rizq-warning border-rizq-warning/30'
+                            : 'bg-rizq-surface-elevated text-rizq-text-muted border-rizq-border'
+                        }`}
                 >
                     ⭐ {t('sort_rating')}
                 </button>
 
-                {/* Distance sort (only if geo is available) */}
+                {/* Distance sort */}
                 <button
                     onClick={() => onSortChange(sort === 'distance' ? 'rating' : 'distance')}
-                    className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-semibold transition-all"
-                    style={{
-                        background: sort === 'distance' ? 'rgba(59,130,246,0.15)' : 'rgba(255,255,255,0.06)',
-                        color: sort === 'distance' ? '#60a5fa' : 'rgba(255,255,255,0.5)',
-                        border: sort === 'distance'
-                            ? '1px solid rgba(59,130,246,0.3)'
-                            : '1px solid rgba(255,255,255,0.08)',
-                    }}
+                    className={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-semibold transition-all border
+            ${sort === 'distance'
+                            ? 'bg-rizq-primary/10 text-rizq-primary border-rizq-primary/30'
+                            : 'bg-rizq-surface-elevated text-rizq-text-muted border-rizq-border'
+                        }`}
                 >
                     📍 {t('sort_distance')}
                 </button>
 
-                {/* Spacer */}
                 <div className="flex-1" />
 
                 {/* Available Today toggle */}
                 <button
                     onClick={() => onAvailableTodayChange(!availableToday)}
-                    className="flex items-center gap-2 px-3 py-2 rounded-lg text-xs font-semibold transition-all"
-                    style={{
-                        background: availableToday
-                            ? 'rgba(59,130,246,0.2)'
-                            : 'rgba(255,255,255,0.06)',
-                        color: availableToday ? '#60a5fa' : 'rgba(255,255,255,0.5)',
-                        border: availableToday
-                            ? '1px solid rgba(59,130,246,0.4)'
-                            : '1px solid rgba(255,255,255,0.08)',
-                        boxShadow: availableToday ? '0 0 12px rgba(59,130,246,0.2)' : 'none',
-                    }}
+                    className={`flex items-center gap-2 px-3 py-2 rounded-lg text-xs font-semibold transition-all border
+            ${availableToday
+                            ? 'bg-rizq-primary/15 text-rizq-primary border-rizq-primary/30 shadow-sm shadow-rizq-primary/10'
+                            : 'bg-rizq-surface-elevated text-rizq-text-muted border-rizq-border'
+                        }`}
                 >
                     <span
-                        className="w-2 h-2 rounded-full"
-                        style={{
-                            background: availableToday ? '#60a5fa' : 'rgba(255,255,255,0.2)',
-                            boxShadow: availableToday ? '0 0 6px rgba(96,165,250,0.5)' : 'none',
-                        }}
+                        className={`w-2 h-2 rounded-full transition-all ${availableToday ? 'bg-rizq-primary shadow-sm shadow-rizq-primary/50' : 'bg-rizq-border'
+                            }`}
                     />
                     {t('available_today')}
                 </button>
@@ -116,7 +95,7 @@ export default function FilterControls({
 
             {/* Row 2: Rating threshold chips */}
             <div className="flex items-center gap-2">
-                <span className="text-xs font-medium" style={{ color: 'rgba(255,255,255,0.4)' }}>
+                <span className="text-xs font-medium text-rizq-text-muted">
                     {t('min_rating')}:
                 </span>
                 {RATINGS.map((r) => {
@@ -125,14 +104,11 @@ export default function FilterControls({
                         <button
                             key={r.label}
                             onClick={() => onMinRatingChange(r.value)}
-                            className="px-2.5 py-1 rounded-lg text-xs font-semibold transition-all"
-                            style={{
-                                background: isActive ? 'rgba(251,191,36,0.15)' : 'rgba(255,255,255,0.04)',
-                                color: isActive ? '#fbbf24' : 'rgba(255,255,255,0.4)',
-                                border: isActive
-                                    ? '1px solid rgba(251,191,36,0.25)'
-                                    : '1px solid rgba(255,255,255,0.06)',
-                            }}
+                            className={`px-2.5 py-1 rounded-lg text-xs font-semibold transition-all border
+                ${isActive
+                                    ? 'bg-rizq-warning/10 text-rizq-warning border-rizq-warning/25'
+                                    : 'bg-rizq-surface-elevated text-rizq-text-muted/60 border-rizq-border'
+                                }`}
                         >
                             {t(`rating_options.${r.label}`)}
                         </button>
