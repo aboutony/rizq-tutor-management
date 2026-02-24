@@ -25,7 +25,13 @@ export async function POST(request: Request) {
         try {
           const result = await client.query('SELECT id FROM tutors WHERE phone = $1', [phone]);
           if (result.rows.length === 0) {
-            return NextResponse.json({ message: 'User not found' }, { status: 404 });
+            // Auto-create new tutor (sign-up flow)
+            const slug = 'tutor-' + phone.replace(/\D/g, '').slice(-6) + '-' + Date.now().toString(36);
+            await client.query(
+              'INSERT INTO tutors (phone, name, slug) VALUES ($1, $2, $3)',
+              [phone, 'New Tutor', slug]
+            );
+            console.log(`[OTP Send] Created new tutor for ${phone}`);
           }
         } finally {
           client.release();
