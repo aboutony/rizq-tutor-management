@@ -94,6 +94,11 @@ export async function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
+  // ── Skip the root landing page — it handles its own rendering ──
+  if (pathname === '/') {
+    return NextResponse.next();
+  }
+
   // ── Apply next-intl locale routing first ──
   const intlResponse = intlMiddleware(request);
 
