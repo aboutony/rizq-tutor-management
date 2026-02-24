@@ -297,6 +297,23 @@
       "celebration_body": "!ملفك الشخصي أصبح مباشراً. يمكن للطلاب الآن اكتشافك على رزق",
       "your_expertise": "خبراتك",
       "redirecting": "...جاري التحويل إلى لوحة التحكم"
+    },
+    "nav": {
+      "tutor_portal": "بوابة المعلم",
+      "my_profile": "ملفي الشخصي",
+      "logout": "تسجيل الخروج",
+      "tab_home": "الرئيسية",
+      "tab_schedule": "الجدول",
+      "tab_messages": "الرسائل",
+      "dashboard_title": "لوحة التحكم",
+      "dashboard_subtitle": "نظرة عامة على تدريسك",
+      "quick_actions": "إجراءات سريعة",
+      "schedule_desc": "إدارة توفرك الأسبوعي",
+      "profile_desc": "تحديث ملفك الشخصي",
+      "schedule_saved": "!تم تحديث الجدول بنجاح",
+      "messages_title": "الرسائل",
+      "messages_coming_soon": "!تحدث مع طلابك — قريباً",
+      "messages_status": "الميزة قيد التطوير"
     }
   }
 }

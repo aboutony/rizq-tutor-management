@@ -49,3 +49,19 @@ export async function GET(request: NextRequest) {
         );
     }
 }
+
+/**
+ * DELETE /api/auth/session
+ * Clears the session cookie (logout).
+ */
+export async function DELETE() {
+    const response = NextResponse.json({ success: true, message: 'Logged out' });
+    response.cookies.set('rizq_session', '', {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === 'production',
+        sameSite: 'lax',
+        path: '/',
+        maxAge: 0, // Expire immediately
+    });
+    return response;
+}

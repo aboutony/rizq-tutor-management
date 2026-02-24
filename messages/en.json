@@ -260,6 +260,23 @@
       "celebration_body": "Your expertise profile is live. Students can now discover you on RIZQ!",
       "your_expertise": "Your Expertise",
       "redirecting": "Redirecting to your dashboard..."
+    },
+    "nav": {
+      "tutor_portal": "Tutor Portal",
+      "my_profile": "My Profile",
+      "logout": "Logout",
+      "tab_home": "Home",
+      "tab_schedule": "Schedule",
+      "tab_messages": "Messages",
+      "dashboard_title": "Dashboard",
+      "dashboard_subtitle": "Your teaching overview at a glance",
+      "quick_actions": "Quick Actions",
+      "schedule_desc": "Manage your weekly availability",
+      "profile_desc": "Update your expertise profile",
+      "schedule_saved": "Schedule Updated Successfully!",
+      "messages_title": "Messages",
+      "messages_coming_soon": "Chat with your students — coming soon!",
+      "messages_status": "Feature in development"
     }
   },
   "student_flow": {

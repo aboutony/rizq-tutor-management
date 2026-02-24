@@ -1,36 +1,31 @@
-"use client";
+'use client';
 
-import React, { useState, useEffect, useCallback } from "react";
-import { useTranslations } from "next-intl";
-import { ThemeToggle } from "@/components/ThemeToggle";
-import { TutorCalendar, SlotData, SessionData } from "@/components/calendar/TutorCalendar";
-import { CalendarSummary } from "@/components/calendar/CalendarSummary";
+import React, { useState, useEffect, useCallback } from 'react';
+import { useTranslations, useLocale } from 'next-intl';
+import { useRouter } from 'next/navigation';
 
 export default function TutorDashboard() {
-    const t = useTranslations("tutor_flow.calendar");
-    const tc = useTranslations("common");
+    const t = useTranslations('tutor_flow.calendar');
+    const tn = useTranslations('tutor_flow.nav');
+    const locale = useLocale();
+    const router = useRouter();
 
-    const [slots, setSlots] = useState<Record<string, SlotData>>({});
-    const [sessions, setSessions] = useState<Record<string, SessionData>>({});
     const [summary, setSummary] = useState({ confirmed: 0, pending: 0, available: 0 });
     const [isLoading, setIsLoading] = useState(true);
 
-    // Fetch availability and sessions on mount
     useEffect(() => {
         async function fetchData() {
             try {
-                const res = await fetch("/api/tutor/availability", {
-                    cache: "no-store",
-                    credentials: "same-origin",
+                const res = await fetch('/api/tutor/availability', {
+                    cache: 'no-store',
+                    credentials: 'same-origin',
                 });
                 if (res.ok) {
                     const data = await res.json();
-                    setSlots(data.slots || {});
-                    setSessions(data.sessions || {});
                     setSummary(data.summary || { confirmed: 0, pending: 0, available: 0 });
                 }
             } catch (err) {
-                console.error("Failed to fetch availability:", err);
+                console.error('Failed to fetch summary:', err);
             } finally {
                 setIsLoading(false);
             }
@@ -38,78 +33,81 @@ export default function TutorDashboard() {
         fetchData();
     }, []);
 
-    // Save handler
-    const handleSave = useCallback(async (updatedSlots: Record<string, SlotData>) => {
-        const res = await fetch("/api/tutor/availability", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ slots: updatedSlots }),
-            credentials: "same-origin",
-        });
-
-        if (!res.ok) {
-            throw new Error("Failed to save");
-        }
-
-        const data = await res.json();
-        // Update available count
-        setSummary((prev) => ({
-            ...prev,
-            available: data.count || Object.values(updatedSlots).filter((s) => s.available).length,
-        }));
-    }, []);
-
     return (
-        <main className="min-h-screen bg-rizq-surface">
-            {/* Header */}
-            <header className="sticky top-0 z-40 bg-rizq-surface/80 backdrop-blur-xl border-b border-rizq-border">
-                <div className="max-w-lg mx-auto px-4 py-3 flex items-center justify-between">
-                    <div>
-                        <h1 className="text-xl font-bold text-rizq-primary">
-                            {tc("app_name")}
-                        </h1>
-                        <p className="text-[10px] text-rizq-text-muted font-medium">
-                            {t("title")}
-                        </p>
-                    </div>
-                    <ThemeToggle />
-                </div>
-            </header>
-
-            <div className="max-w-lg mx-auto px-4 py-6 space-y-6 animate-fade-in">
-                {isLoading ? (
-                    /* Skeleton loader */
-                    <div className="space-y-4">
-                        <div className="grid grid-cols-3 gap-3">
-                            {[1, 2, 3].map((i) => (
-                                <div
-                                    key={i}
-                                    className="h-20 rounded-2xl bg-rizq-surface-elevated animate-pulse"
-                                />
-                            ))}
-                        </div>
-                        <div className="h-96 rounded-2xl bg-rizq-surface-elevated animate-pulse" />
-                    </div>
-                ) : (
-                    <>
-                        {/* Summary Section */}
-                        <CalendarSummary
-                            confirmedCount={summary.confirmed}
-                            pendingCount={summary.pending}
-                            availableCount={summary.available}
-                        />
-
-                        {/* Calendar Grid */}
-                        <div className="card !p-4">
-                            <TutorCalendar
-                                initialSlots={slots}
-                                sessions={sessions}
-                                onSave={handleSave}
-                            />
-                        </div>
-                    </>
-                )}
+        <div className="max-w-lg mx-auto px-4 py-6 space-y-6 animate-fade-in">
+            {/* Welcome section */}
+            <div className="space-y-1">
+                <h2 className="text-2xl font-bold text-rizq-text">{tn('dashboard_title')}</h2>
+                <p className="text-sm text-rizq-text-muted">{tn('dashboard_subtitle')}</p>
             </div>
-        </main>
+
+            {/* Summary cards */}
+            {isLoading ? (
+                <div className="grid grid-cols-3 gap-3">
+                    {[1, 2, 3].map((i) => (
+                        <div key={i} className="h-24 rounded-2xl bg-rizq-surface-elevated animate-pulse" />
+                    ))}
+                </div>
+            ) : (
+                <div className="grid grid-cols-3 gap-3">
+                    {/* Confirmed */}
+                    <div className="card !p-4 space-y-1">
+                        <span className="text-3xl font-bold text-rizq-success">{summary.confirmed}</span>
+                        <p className="text-[10px] font-semibold text-rizq-text-muted uppercase tracking-wider">{t('confirmed')}</p>
+                    </div>
+                    {/* Pending */}
+                    <div className="card !p-4 space-y-1">
+                        <span className="text-3xl font-bold text-rizq-warning">{summary.pending}</span>
+                        <p className="text-[10px] font-semibold text-rizq-text-muted uppercase tracking-wider">{t('pending')}</p>
+                    </div>
+                    {/* Available */}
+                    <div className="card !p-4 space-y-1">
+                        <span className="text-3xl font-bold text-rizq-text">{summary.available}</span>
+                        <p className="text-[10px] font-semibold text-rizq-text-muted uppercase tracking-wider">{t('available')}</p>
+                    </div>
+                </div>
+            )}
+
+            {/* Quick actions */}
+            <div className="space-y-3">
+                <h3 className="text-sm font-semibold text-rizq-text">{tn('quick_actions')}</h3>
+
+                <button
+                    onClick={() => router.push(`/${locale}/dashboard/tutor/schedule`)}
+                    className="w-full card !p-4 flex items-center gap-4 hover:border-rizq-primary/30 transition-all group"
+                >
+                    <div className="w-12 h-12 rounded-xl flex items-center justify-center text-2xl bg-rizq-primary/10 border border-rizq-primary/20">
+                        📅
+                    </div>
+                    <div className="flex-1 text-left">
+                        <span className="text-sm font-bold text-rizq-text group-hover:text-rizq-primary transition-colors">
+                            {tn('tab_schedule')}
+                        </span>
+                        <p className="text-[11px] text-rizq-text-muted">{tn('schedule_desc')}</p>
+                    </div>
+                    <svg className="text-rizq-text-muted/40" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg>
+                </button>
+
+                <button
+                    onClick={() => router.push(`/${locale}/dashboard/tutor/onboarding`)}
+                    className="w-full card !p-4 flex items-center gap-4 hover:border-rizq-primary/30 transition-all group"
+                >
+                    <div className="w-12 h-12 rounded-xl flex items-center justify-center text-2xl bg-rizq-secondary/10 border border-rizq-secondary/20">
+                        🎓
+                    </div>
+                    <div className="flex-1 text-left">
+                        <span className="text-sm font-bold text-rizq-text group-hover:text-rizq-primary transition-colors">
+                            {tn('my_profile')}
+                        </span>
+                        <p className="text-[11px] text-rizq-text-muted">{tn('profile_desc')}</p>
+                    </div>
+                    <svg className="text-rizq-text-muted/40" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg>
+                </button>
+            </div>
+        </div>
     );
 }
