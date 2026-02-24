@@ -338,6 +338,22 @@
       "delete_cancel": "Annuler",
       "delete_confirm": "Supprimer définitivement",
       "delete_deleting": "Suppression..."
+    },
+    "messages_center": {
+      "title": "Messages et demandes",
+      "empty": "Aucune demande pour le moment. Quand les étudiants réservent des séances, elles apparaîtront ici.",
+      "accept": "Accepter",
+      "decline": "Refuser",
+      "chat": "Conversation",
+      "no_messages": "Aucun message pour le moment. Lancez la conversation !",
+      "chat_placeholder": "Écrivez un message...",
+      "send": "Envoyer",
+      "accepted_system": "✅ Séance confirmée ! Au plaisir de vous enseigner.",
+      "declined_system": "Demande de séance refusée.",
+      "status_requested": "En attente",
+      "status_confirmed": "Confirmée",
+      "status_completed": "Terminée",
+      "status_canceled": "Refusée"
     }
   },
   "student_flow": {

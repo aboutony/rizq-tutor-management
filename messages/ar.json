@@ -338,6 +338,22 @@
       "delete_cancel": "إلغاء",
       "delete_confirm": "حذف نهائياً",
       "delete_deleting": "...جاري الحذف"
+    },
+    "messages_center": {
+      "title": "الرسائل والطلبات",
+      "empty": "لا توجد طلبات بعد. عندما يحجز الطلاب جلسات، ستظهر هنا.",
+      "accept": "قبول",
+      "decline": "رفض",
+      "chat": "المحادثة",
+      "no_messages": "لا توجد رسائل بعد. ابدأ المحادثة!",
+      "chat_placeholder": "اكتب رسالة...",
+      "send": "إرسال",
+      "accepted_system": "✅ تم تأكيد الجلسة! أتطلع لتدريسك.",
+      "declined_system": "تم رفض طلب الجلسة.",
+      "status_requested": "معلق",
+      "status_confirmed": "مؤكد",
+      "status_completed": "مكتمل",
+      "status_canceled": "مرفوض"
     }
   },
   "student_flow": {

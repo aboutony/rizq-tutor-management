@@ -301,6 +301,22 @@
       "delete_cancel": "Cancel",
       "delete_confirm": "Delete Forever",
       "delete_deleting": "Deleting..."
+    },
+    "messages_center": {
+      "title": "Messages & Requests",
+      "empty": "No requests yet. When students book sessions, they'll appear here.",
+      "accept": "Accept",
+      "decline": "Decline",
+      "chat": "Conversation",
+      "no_messages": "No messages yet. Start the conversation!",
+      "chat_placeholder": "Type a message...",
+      "send": "Send",
+      "accepted_system": "✅ Session confirmed! Looking forward to teaching you.",
+      "declined_system": "Session request declined.",
+      "status_requested": "Pending",
+      "status_confirmed": "Confirmed",
+      "status_completed": "Completed",
+      "status_canceled": "Declined"
     }
   },
   "student_flow": {
