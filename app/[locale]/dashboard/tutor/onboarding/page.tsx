@@ -3,7 +3,6 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
 import { useRouter } from 'next/navigation';
-import { ThemeToggle } from '@/components/ThemeToggle';
 import { CURRICULUM_SCHEMA, type CurriculumCategory } from '@/lib/curriculum-lb';
 
 const TOTAL_STEPS = 4;
@@ -127,15 +126,7 @@ export default function OnboardingWizard() {
         : null;
 
     return (
-        <main className="min-h-screen bg-rizq-surface transition-colors duration-300">
-            {/* Header */}
-            <header className="sticky top-0 z-40 bg-rizq-surface/80 backdrop-blur-xl border-b border-rizq-border">
-                <div className="max-w-lg mx-auto px-4 py-3 flex items-center justify-between">
-                    <h1 className="text-xl font-bold text-rizq-primary">{tc('app_name')}</h1>
-                    <ThemeToggle />
-                </div>
-            </header>
-
+        <div className="animate-fade-in">
             <div className="max-w-lg mx-auto px-4 py-6">
                 {/* Progress dots */}
                 {step < 4 && (
@@ -144,10 +135,10 @@ export default function OnboardingWizard() {
                             <div
                                 key={s}
                                 className={`h-2 rounded-full transition-all duration-500 ${s === step
-                                        ? 'w-8 bg-rizq-primary'
-                                        : s < step
-                                            ? 'w-2 bg-rizq-primary/50'
-                                            : 'w-2 bg-rizq-border'
+                                    ? 'w-8 bg-rizq-primary'
+                                    : s < step
+                                        ? 'w-2 bg-rizq-primary/50'
+                                        : 'w-2 bg-rizq-border'
                                     }`}
                             />
                         ))}
@@ -202,8 +193,8 @@ export default function OnboardingWizard() {
                                             key={cat.id}
                                             onClick={() => toggleCategory(cat.id)}
                                             className={`relative p-4 rounded-2xl text-left transition-all duration-200 border-2 ${isSelected
-                                                    ? 'bg-rizq-primary/10 border-rizq-primary shadow-md shadow-rizq-primary/10'
-                                                    : 'bg-rizq-surface-elevated border-rizq-border hover:border-rizq-primary/30'
+                                                ? 'bg-rizq-primary/10 border-rizq-primary shadow-md shadow-rizq-primary/10'
+                                                : 'bg-rizq-surface-elevated border-rizq-border hover:border-rizq-primary/30'
                                                 }`}
                                         >
                                             {/* Checkmark */}
@@ -256,10 +247,10 @@ export default function OnboardingWizard() {
                                                 key={catId}
                                                 onClick={() => setViewingCatIndex(idx)}
                                                 className={`flex-shrink-0 flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold transition-all border ${idx === viewingCatIndex
-                                                        ? 'bg-rizq-primary text-white border-rizq-primary'
-                                                        : hasSubs
-                                                            ? 'bg-rizq-success/10 text-rizq-success border-rizq-success/30'
-                                                            : 'bg-rizq-surface-elevated text-rizq-text-muted border-rizq-border'
+                                                    ? 'bg-rizq-primary text-white border-rizq-primary'
+                                                    : hasSubs
+                                                        ? 'bg-rizq-success/10 text-rizq-success border-rizq-success/30'
+                                                        : 'bg-rizq-surface-elevated text-rizq-text-muted border-rizq-border'
                                                     }`}
                                             >
                                                 {cat.icon} {cat.label}
@@ -279,14 +270,14 @@ export default function OnboardingWizard() {
                                             <button
                                                 onClick={() => toggleSub(currentCat.id, sub.id)}
                                                 className={`w-full flex items-center gap-3 p-3.5 rounded-xl transition-all duration-200 border ${isSelected
-                                                        ? 'bg-rizq-primary/10 border-rizq-primary text-rizq-text'
-                                                        : 'bg-rizq-surface-elevated border-rizq-border text-rizq-text hover:border-rizq-primary/30'
+                                                    ? 'bg-rizq-primary/10 border-rizq-primary text-rizq-text'
+                                                    : 'bg-rizq-surface-elevated border-rizq-border text-rizq-text hover:border-rizq-primary/30'
                                                     }`}
                                             >
                                                 <div
                                                     className={`w-5 h-5 rounded-md border-2 flex items-center justify-center transition-all ${isSelected
-                                                            ? 'bg-rizq-primary border-rizq-primary'
-                                                            : 'border-rizq-border'
+                                                        ? 'bg-rizq-primary border-rizq-primary'
+                                                        : 'border-rizq-border'
                                                         }`}
                                                 >
                                                     {isSelected && (
@@ -412,6 +403,6 @@ export default function OnboardingWizard() {
           @keyframes float-3 { 0%,100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-15px) rotate(5deg); } }
         `}</style>
             )}
-        </main>
+        </div>
     );
 }

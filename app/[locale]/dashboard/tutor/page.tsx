@@ -91,7 +91,7 @@ export default function TutorDashboard() {
                 </button>
 
                 <button
-                    onClick={() => router.push(`/${locale}/dashboard/tutor/onboarding`)}
+                    onClick={() => router.push(`/${locale}/dashboard/tutor/profile`)}
                     className="w-full card !p-4 flex items-center gap-4 hover:border-rizq-primary/30 transition-all group"
                 >
                     <div className="w-12 h-12 rounded-xl flex items-center justify-center text-2xl bg-rizq-secondary/10 border border-rizq-secondary/20">
@@ -101,7 +101,7 @@ export default function TutorDashboard() {
                         <span className="text-sm font-bold text-rizq-text group-hover:text-rizq-primary transition-colors">
                             {tn('my_profile')}
                         </span>
-                        <p className="text-[11px] text-rizq-text-muted">{tn('profile_desc')}</p>
+                        <p className="text-[11px] text-rizq-text-muted">{tn('profile_view_desc')}</p>
                     </div>
                     <svg className="text-rizq-text-muted/40" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                         <path d="M9 18l6-6-6-6" />

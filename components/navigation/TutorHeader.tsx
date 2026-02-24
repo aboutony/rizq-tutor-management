@@ -69,7 +69,7 @@ export function TutorHeader() {
                                 <button
                                     onClick={() => {
                                         setMenuOpen(false);
-                                        router.push(`/${locale}/dashboard/tutor/onboarding`);
+                                        router.push(`/${locale}/dashboard/tutor/profile`);
                                     }}
                                     className="w-full flex items-center gap-3 px-4 py-3 text-sm text-rizq-text hover:bg-rizq-primary/5 transition-colors"
                                 >

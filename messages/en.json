@@ -273,10 +273,21 @@
       "quick_actions": "Quick Actions",
       "schedule_desc": "Manage your weekly availability",
       "profile_desc": "Update your expertise profile",
+      "profile_view_desc": "View your expertise & categories",
       "schedule_saved": "Schedule Updated Successfully!",
       "messages_title": "Messages",
       "messages_coming_soon": "Chat with your students — coming soon!",
       "messages_status": "Feature in development"
+    },
+    "profile": {
+      "unnamed": "Unnamed Tutor",
+      "expertise_count": "expertise areas",
+      "bio_title": "About",
+      "expertise_title": "My Expertise",
+      "categories": "categories",
+      "no_expertise": "You haven't set up your expertise yet.",
+      "setup_now": "Set Up Now",
+      "edit_expertise": "Edit My Expertise"
     }
   },
   "student_flow": {

@@ -310,10 +310,21 @@
       "quick_actions": "Actions Rapides",
       "schedule_desc": "Gérez votre disponibilité hebdomadaire",
       "profile_desc": "Mettez à jour votre profil d'expertise",
+      "profile_view_desc": "Voir votre expertise et vos catégories",
       "schedule_saved": "Emploi du temps mis à jour avec succès !",
       "messages_title": "Messages",
       "messages_coming_soon": "Discutez avec vos étudiants — bientôt disponible !",
       "messages_status": "Fonctionnalité en développement"
+    },
+    "profile": {
+      "unnamed": "Tuteur sans nom",
+      "expertise_count": "domaines d'expertise",
+      "bio_title": "À propos",
+      "expertise_title": "Mon Expertise",
+      "categories": "catégories",
+      "no_expertise": "Vous n'avez pas encore configuré votre expertise.",
+      "setup_now": "Configurer maintenant",
+      "edit_expertise": "Modifier mon expertise"
     }
   }
 }

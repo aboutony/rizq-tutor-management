@@ -310,10 +310,21 @@
       "quick_actions": "إجراءات سريعة",
       "schedule_desc": "إدارة توفرك الأسبوعي",
       "profile_desc": "تحديث ملفك الشخصي",
+      "profile_view_desc": "عرض خبراتك وفئاتك",
       "schedule_saved": "!تم تحديث الجدول بنجاح",
       "messages_title": "الرسائل",
       "messages_coming_soon": "!تحدث مع طلابك — قريباً",
       "messages_status": "الميزة قيد التطوير"
+    },
+    "profile": {
+      "unnamed": "معلم بدون اسم",
+      "expertise_count": "مجالات خبرة",
+      "bio_title": "نبذة عني",
+      "expertise_title": "خبراتي",
+      "categories": "فئات",
+      "no_expertise": ".لم تقم بإعداد خبراتك بعد",
+      "setup_now": "إعداد الآن",
+      "edit_expertise": "تعديل خبراتي"
     }
   }
 }
