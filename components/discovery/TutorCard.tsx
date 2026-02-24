@@ -38,7 +38,7 @@ export default function TutorCard({ tutor }: TutorCardProps) {
 
     return (
         <a
-            href={`/${locale}/t/${tutor.slug}`}
+            href={`/${locale}/discover/tutor/${tutor.slug}`}
             className="block rounded-2xl p-4 transition-all group bg-rizq-surface-elevated border border-rizq-border hover:shadow-lg hover:border-rizq-primary/30"
         >
             <div className="flex items-start gap-3">

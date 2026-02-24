@@ -335,10 +335,15 @@
       "geo_locating": "Locating...",
       "categories": {
         "all": "All",
-        "academic": "Mathematics",
-        "music": "Music",
-        "language": "Languages",
-        "fine_arts": "Fine Arts"
+        "general_education": "General Education",
+        "tvet": "TVET",
+        "brevet": "Brevet",
+        "lebanese_bac": "Baccalaureate",
+        "coding_tech": "Coding & Tech",
+        "languages": "Languages",
+        "arts_creative": "Arts & Creative",
+        "sports_fitness": "Sports & Fitness",
+        "culinary": "Culinary Arts"
       },
       "sort_price": "Price",
       "sort_rating": "Rating",
