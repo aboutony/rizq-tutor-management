@@ -1,0 +1,5 @@
+{
+  "name": "RIZQ Tutor Management",
+  "description": "A mobile-first web utility for tutors to manage lesson requests, confirmations, payments, and reputation via a single shareable link. This is a tool, not a marketplace.",
+  "requestFramePermissions": []
+}

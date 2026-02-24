@@ -1,0 +1,203 @@
+{
+  "common": {
+    "app_name": "RIZQ",
+    "actions": {
+      "confirm": "Confirmer",
+      "cancel": "Annuler",
+      "save": "Enregistrer",
+      "request": "Demander",
+      "continue": "Continuer",
+      "save_and_finish": "Enregistrer et terminer",
+      "accept": "Accepter",
+      "reject": "Rejeter",
+      "submit": "Soumettre",
+      "approve": "Approuver",
+      "decline": "Refuser",
+      "confirm_cancellation": "Oui, Annuler la Leçon",
+      "request_reschedule": "Demander à Replanifier",
+      "submit_rating": "Soumettre l'Évaluation"
+    },
+    "days": {
+      "sun": "Dim",
+      "mon": "Lun",
+      "tue": "Mar",
+      "wed": "Mer",
+      "thu": "Jeu",
+      "fri": "Ven",
+      "sat": "Sam"
+    },
+    "loading": "Chargement...",
+    "errors": {
+      "generic": "Une erreur est survenue. Veuillez réessayer.",
+      "invalid_link": "Ce lien est invalide ou a expiré."
+    }
+  },
+  "auth": {
+    "login_title": "Connectez-vous à votre compte",
+    "phone_label": "Numéro de téléphone",
+    "phone_placeholder": "Entrez votre numéro",
+    "country_code": "Indicatif pays",
+    "send_otp": "Envoyer le code de vérification",
+    "sending": "Envoi en cours...",
+    "verify_title": "Vérifiez votre identité",
+    "otp_placeholder": "Entrez le code",
+    "verify_button": "Vérifier et continuer",
+    "verifying": "Vérification en cours...",
+    "resend": "Renvoyer le code",
+    "didnt_receive": "Vous n'avez pas reçu le code ?",
+    "back_to_login": "Retour à la connexion",
+    "code_sent_to": "Un code de vérification a été envoyé au",
+    "select_role": "Je suis",
+    "role_tutor": "Tuteur",
+    "role_student_parent": "Élève / Parent",
+    "error_rate_limit": "Trop de demandes. Veuillez patienter un instant.",
+    "error_not_found": "Aucun compte trouvé avec ce numéro de téléphone.",
+    "error_invalid_code": "Le code que vous avez entré est incorrect.",
+    "error_generic": "Une erreur inattendue est survenue. Veuillez réessayer."
+  },
+  "security": {
+    "access_denied": "Accès Refusé",
+    "redirect_message": "Vous n'avez pas la permission de voir cette page. Redirection en cours..."
+  },
+  "theme": {
+    "light": "Clair",
+    "dark": "Sombre"
+  },
+  "student_flow": {
+    "dashboard": {
+      "my_lessons": "Mes Leçons",
+      "find_tutor": "Trouver un Tuteur",
+      "upcoming": "À Venir"
+    }
+  },
+  "parent_flow": {
+    "rating": {
+      "title": "Évaluez Votre Leçon",
+      "subtitle": "Comment s'est passée votre leçon avec {tutorName} pour {studentName}?",
+      "comment_label": "Ajouter un commentaire (optionnel, 140 caractères max)",
+      "success_title": "Merci !",
+      "success_body": "Votre évaluation a été soumise."
+    },
+    "cancellation": {
+      "title": "Annuler la Leçon",
+      "confirm_title": "Êtes-vous sûr ?",
+      "student": "Élève",
+      "lesson": "Leçon",
+      "time": "Heure",
+      "late_warning": "Cette annulation est dans le délai de {hours} heures et peut être due selon la politique du tuteur.",
+      "success_message": "La leçon a été annulée avec succès."
+    },
+    "reschedule": {
+      "title": "Replanifier la Leçon",
+      "current_time": "Heure Actuelle",
+      "propose_new_time": "Proposer une Nouvelle Heure",
+      "success_title": "Demande Envoyée",
+      "success_body": "Votre demande de replanification a été envoyée. Le tuteur confirmera la nouvelle heure sous peu."
+    },
+    "public_page": {
+      "tutor_not_found": "Tuteur non trouvé.",
+      "lessons_offered": "Leçons Proposées",
+      "no_lessons_yet": "Ce tuteur n'a pas encore configuré de leçons.",
+      "pricing_title": "Tarifs",
+      "rating_summary": "{count} évaluations",
+      "no_ratings": "Aucune évaluation pour le moment.",
+      "request_lesson_cta": "Demander une Leçon"
+    },
+    "request_form": {
+      "title": "Demander une leçon avec {tutorName}",
+      "student_name_label": "Nom complet de l'élève",
+      "lesson_type_label": "Type de leçon",
+      "duration_label": "Durée",
+      "select_lesson_first": "Sélectionnez d'abord une leçon",
+      "datetime_label": "Date et heure souhaitées",
+      "success_message_title": "Demande Envoyée !",
+      "success_message_body": "Votre demande de leçon a été envoyée au tuteur. Vous serez averti directement dès qu'il la confirmera."
+    },
+    "landing": {
+      "title": "Demander une leçon",
+      "cta": "Demander la leçon"
+    },
+    "request_form_legacy": {
+      "student_name": "Nom de l'élève",
+      "preferred_time": "Créneau horaire préféré",
+      "submit_button": "Envoyer la demande"
+    },
+    "status": {
+      "pending": "Votre demande a été envoyée. Vous recevrez une confirmation sous peu.",
+      "late_warning": "Cette annulation est tardive et peut être facturée."
+    }
+  },
+  "tutor_flow": {
+    "dashboard": {
+      "lesson_log": "Journal des leçons",
+      "requests_inbox": "Demandes de leçons",
+      "reschedule_requests": "Demandes de Replanification"
+    },
+    "lesson_log_page": {
+      "title": "Journal des Leçons",
+      "no_lessons": "Vous n'avez aucune leçon confirmée ou terminée.",
+      "status": {
+        "confirmed": "Confirmée",
+        "completed": "Terminée"
+      },
+      "actions": {
+        "mark_complete": "Marquer comme Terminée"
+      }
+    },
+    "reschedules": {
+      "title": "Demandes de Replanification",
+      "no_requests": "Vous n'avez aucune demande de replanification en attente.",
+      "original_time": "Heure d'Origine",
+      "proposed_time": "Heure Proposée"
+    },
+    "inbox": {
+      "title": "Demandes de Leçons",
+      "no_requests": "Vous n'avez aucune nouvelle demande de leçon.",
+      "student": "Élève",
+      "requested_on": "Demandé le",
+      "duration": "{minutes} min"
+    },
+    "payment": {
+      "paid": "Payé",
+      "unpaid": "Non payé"
+    },
+    "setup": {
+      "profile_name": "Nom du tuteur (public)",
+      "main_title": "Configuration du Tuteur",
+      "step_1_title": "Profil & Leçons",
+      "step_1_subtitle": "Étape 1/3: Dites-nous qui vous êtes et ce que vous enseignez.",
+      "name_label": "Votre Nom Public",
+      "lesson_types_label": "Quel type de leçons proposez-vous?",
+      "lesson_types": {
+        "math": "Maths",
+        "piano": "Piano",
+        "academic": "Académique",
+        "music": "Musique",
+        "fine_arts": "Beaux-Arts",
+        "language": "Langue"
+      },
+      "step_2_title": "Tarifs",
+      "step_2_subtitle": "Étape 2/3: Définissez vos tarifs pour chaque type de leçon.",
+      "price_per_duration": "Prix par durée (USD)",
+      "duration_minutes": "{minutes} min",
+      "step_3_title": "Disponibilité",
+      "step_3_subtitle": "Étape 3/3: Définissez votre horaire d'enseignement hebdomadaire.",
+      "availability_instructions": "Sélectionnez les créneaux horaires où vous êtes disponible pour les leçons.",
+      "saving": "Enregistrement..."
+    },
+    "login": {
+      "title": "Connexion Tuteur",
+      "phone_label": "Numéro de téléphone",
+      "send_code_button": "Envoyer le code",
+      "otp_label": "Code de vérification",
+      "verify_button": "Vérifier et se connecter",
+      "sending_code": "Envoi du code...",
+      "verifying": "Vérification...",
+      "code_sent": "Un code de vérification a été envoyé à votre téléphone.",
+      "error_tutor_not_found": "Aucun tuteur trouvé avec ce numéro de téléphone.",
+      "error_invalid_code": "Le code que vous avez entré est incorrect.",
+      "error_rate_limit": "Vous demandez des codes trop fréquemment. Veuillez patienter un instant.",
+      "error_generic": "Une erreur inattendue est survenue. Veuillez réessayer."
+    }
+  }
+}

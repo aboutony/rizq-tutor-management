@@ -1,0 +1,203 @@
+{
+  "common": {
+    "app_name": "رزق",
+    "actions": {
+      "confirm": "تأكيد",
+      "cancel": "إلغاء",
+      "save": "حفظ",
+      "request": "طلب",
+      "continue": "متابعة",
+      "save_and_finish": "حفظ وإنهاء",
+      "accept": "قبول",
+      "reject": "رفض",
+      "submit": "إرسال",
+      "approve": "موافقة",
+      "decline": "رفض",
+      "confirm_cancellation": "نعم، ألغِ الدرس",
+      "request_reschedule": "طلب إعادة جدولة",
+      "submit_rating": "إرسال التقييم"
+    },
+    "days": {
+      "sun": "الأحد",
+      "mon": "الإثنين",
+      "tue": "الثلاثاء",
+      "wed": "الأربعاء",
+      "thu": "الخميس",
+      "fri": "الجمعة",
+      "sat": "السبت"
+    },
+    "loading": "جاري التحميل...",
+    "errors": {
+      "generic": "حدث خطأ. يرجى المحاولة مرة أخرى.",
+      "invalid_link": "هذا الرابط غير صالح أو انتهت صلاحيته."
+    }
+  },
+  "auth": {
+    "login_title": "تسجيل الدخول إلى حسابك",
+    "phone_label": "رقم الهاتف",
+    "phone_placeholder": "أدخل رقمك",
+    "country_code": "رمز الدولة",
+    "send_otp": "إرسال رمز التحقق",
+    "sending": "جاري الإرسال...",
+    "verify_title": "تحقق من هويتك",
+    "otp_placeholder": "أدخل الرمز",
+    "verify_button": "تحقق ومتابعة",
+    "verifying": "جاري التحقق...",
+    "resend": "إعادة إرسال الرمز",
+    "didnt_receive": "لم تستلم الرمز؟",
+    "back_to_login": "العودة لتسجيل الدخول",
+    "code_sent_to": "تم إرسال رمز التحقق إلى",
+    "select_role": "أنا",
+    "role_tutor": "معلم",
+    "role_student_parent": "طالب / ولي أمر",
+    "error_rate_limit": "طلبات كثيرة جدًا. يرجى الانتظار لحظة.",
+    "error_not_found": "لا يوجد حساب مسجل بهذا الرقم.",
+    "error_invalid_code": "الرمز الذي أدخلته غير صحيح.",
+    "error_generic": "حدث خطأ غير متوقع. يرجى المحاولة مرة أخرى."
+  },
+  "security": {
+    "access_denied": "تم رفض الوصول",
+    "redirect_message": "ليس لديك إذن لعرض هذه الصفحة. جاري إعادة التوجيه..."
+  },
+  "theme": {
+    "light": "فاتح",
+    "dark": "داكن"
+  },
+  "student_flow": {
+    "dashboard": {
+      "my_lessons": "دروسي",
+      "find_tutor": "البحث عن معلم",
+      "upcoming": "القادمة"
+    }
+  },
+  "parent_flow": {
+    "rating": {
+      "title": "قيّم درسك",
+      "subtitle": "كيف كان درسك مع {tutorName} لـ {studentName}؟",
+      "comment_label": "أضف تعليقًا (اختياري، 140 حرفًا كحد أقصى)",
+      "success_title": "شكرًا لك!",
+      "success_body": "تم إرسال تقييمك بنجاح."
+    },
+    "cancellation": {
+      "title": "إلغاء الدرس",
+      "confirm_title": "هل أنت متأكد؟",
+      "student": "الطالب",
+      "lesson": "الدرس",
+      "time": "الوقت",
+      "late_warning": "هذا الإلغاء يتم خلال فترة السماح البالغة {hours} ساعة وقد يكون مدفوعًا وفقًا لسياسة المعلم.",
+      "success_message": "تم إلغاء الدرس بنجاح."
+    },
+    "reschedule": {
+      "title": "إعادة جدولة الدرس",
+      "current_time": "الوقت الحالي",
+      "propose_new_time": "اقترح وقتًا جديدًا",
+      "success_title": "تم إرسال الطلب",
+      "success_body": "تم إرسال طلب إعادة الجدولة الخاص بك. سيؤكد المعلم الوقت الجديد قريبًا."
+    },
+    "public_page": {
+      "tutor_not_found": "المعلم غير موجود.",
+      "lessons_offered": "الدروس المتاحة",
+      "no_lessons_yet": "لم يقم هذا المعلم بإعداد أي دروس بعد.",
+      "pricing_title": "الأسعار",
+      "rating_summary": "{count} تقييمات",
+      "no_ratings": "لا توجد تقييمات بعد.",
+      "request_lesson_cta": "اطلب درسًا"
+    },
+    "request_form": {
+      "title": "اطلب درسًا مع {tutorName}",
+      "student_name_label": "اسم الطالب الكامل",
+      "lesson_type_label": "نوع الدرس",
+      "duration_label": "المدة",
+      "select_lesson_first": "اختر درسًا أولاً",
+      "datetime_label": "التاريخ والوقت المفضل",
+      "success_message_title": "تم إرسال الطلب!",
+      "success_message_body": "تم إرسال طلب الدرس الخاص بك إلى المعلم. سيتم إعلامك مباشرة بمجرد تأكيدهم."
+    },
+    "landing": {
+      "title": "طلب درس خصوصي",
+      "cta": "طلب درس جديد"
+    },
+    "request_form_legacy": {
+      "student_name": "اسم الطالب",
+      "preferred_time": "الوقت المفضل",
+      "submit_button": "إرسال الطلب"
+    },
+    "status": {
+      "pending": "طلبك قيد الانتظار. ستصلك رسالة تأكيد قريباً.",
+      "late_warning": "هذا الإلغاء متأخر وقد يكون مدفوعاً."
+    }
+  },
+  "tutor_flow": {
+    "dashboard": {
+      "lesson_log": "سجل الدروس",
+      "requests_inbox": "طلبات الدروس",
+      "reschedule_requests": "طلبات إعادة الجدولة"
+    },
+    "lesson_log_page": {
+      "title": "سجل الدروس",
+      "no_lessons": "ليس لديك دروس مؤكدة أو مكتملة.",
+      "status": {
+        "confirmed": "مؤكد",
+        "completed": "مكتمل"
+      },
+      "actions": {
+        "mark_complete": "وضع علامة اكتمال"
+      }
+    },
+    "reschedules": {
+      "title": "طلبات إعادة الجدولة",
+      "no_requests": "ليس لديك طلبات إعادة جدولة معلقة.",
+      "original_time": "الوقت الأصلي",
+      "proposed_time": "الوقت المقترح"
+    },
+    "inbox": {
+      "title": "طلبات الدروس",
+      "no_requests": "ليس لديك طلبات دروس جديدة.",
+      "student": "الطالب",
+      "requested_on": "تاريخ الطلب",
+      "duration": "{minutes} دقيقة"
+    },
+    "payment": {
+      "paid": "تم الدفع",
+      "unpaid": "لم يتم الدفع"
+    },
+    "setup": {
+      "profile_name": "اسم المعلم (للعامة)",
+      "main_title": "إعداد حساب المعلم",
+      "step_1_title": "الملف الشخصي والدروس",
+      "step_1_subtitle": "الخطوة 1/3: عرفنا بنفسك وبماذا تدرس.",
+      "name_label": "اسمك العام",
+      "lesson_types_label": "ما نوع الدروس التي تقدمها؟",
+      "lesson_types": {
+        "math": "رياضيات",
+        "piano": "بيانو",
+        "academic": "أكاديمي",
+        "music": "موسيقى",
+        "fine_arts": "فنون جميلة",
+        "language": "لغات"
+      },
+      "step_2_title": "التسعير",
+      "step_2_subtitle": "الخطوة 2/3: حدد أسعارك لكل نوع درس.",
+      "price_per_duration": "السعر حسب المدة (دولار أمريكي)",
+      "duration_minutes": "{minutes} دقيقة",
+      "step_3_title": "التوافر",
+      "step_3_subtitle": "الخطوة 3/3: حدد جدول التدريس الأسبوعي.",
+      "availability_instructions": "اختر الأوقات التي تكون فيها متاحًا للدروس.",
+      "saving": "جاري الحفظ..."
+    },
+    "login": {
+      "title": "دخول المعلم",
+      "phone_label": "رقم الهاتف",
+      "send_code_button": "إرسال الرمز",
+      "otp_label": "رمز التحقق",
+      "verify_button": "تحقق ودخول",
+      "sending_code": "جاري إرسال الرمز...",
+      "verifying": "جاري التحقق...",
+      "code_sent": "تم إرسال رمز التحقق إلى هاتفك.",
+      "error_tutor_not_found": "لا يوجد معلم مسجل بهذا الرقم.",
+      "error_invalid_code": "الرمز الذي أدخلته غير صحيح.",
+      "error_rate_limit": "أنت تطلب الرموز بشكل متكرر. يرجى الانتظار لحظة.",
+      "error_generic": "حدث خطأ غير متوقع. يرجى المحاولة مرة أخرى."
+    }
+  }
+}
