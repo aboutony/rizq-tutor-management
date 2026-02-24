@@ -247,6 +247,9 @@
       "name_min": "Name must be at least 2 characters",
       "step2_title": "What Do You Teach?",
       "step2_subtitle": "Select all categories that match your expertise. You can choose multiple.",
+      "step2_loc_title": "Where Do You Teach?",
+      "step2_loc_subtitle": "Select all the districts you're willing to travel to for lessons.",
+      "districts_selected": "{count} districts selected",
       "specializations": "specializations",
       "selected_count": "{count} selected",
       "step3_subtitle": "Select the specific areas you teach. Choose all that apply.",
@@ -259,6 +262,8 @@
       "celebration_title": "Congratulations! Welcome onboard 🎉",
       "celebration_body": "Your expertise profile is live. Students can now discover you on RIZQ!",
       "your_expertise": "Your Expertise",
+      "your_districts": "Your Service Areas",
+      "districts_label": "districts",
       "redirecting": "Redirecting to your dashboard..."
     },
     "nav": {

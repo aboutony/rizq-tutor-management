@@ -286,6 +286,9 @@
       "step2_subtitle": "Sélectionnez toutes les catégories correspondant à votre expertise. Vous pouvez en choisir plusieurs.",
       "specializations": "spécialisations",
       "selected_count": "{count} sélectionné(s)",
+      "step2_loc_title": "Où enseignez-vous ?",
+      "step2_loc_subtitle": "Sélectionnez tous les districts où vous êtes prêt à vous déplacer.",
+      "districts_selected": "{count} districts sélectionnés",
       "step3_subtitle": "Sélectionnez les domaines spécifiques que vous enseignez. Choisissez tout ce qui s'applique.",
       "sub_selected": "{count} sélectionné(s)",
       "other_placeholder": "Veuillez préciser...",
@@ -296,6 +299,8 @@
       "celebration_title": "Félicitations ! Bienvenue à bord 🎉",
       "celebration_body": "Votre profil d'expertise est en ligne. Les étudiants peuvent maintenant vous découvrir sur RIZQ !",
       "your_expertise": "Votre Expertise",
+      "your_districts": "Vos zones de service",
+      "districts_label": "districts",
       "redirecting": "Redirection vers votre tableau de bord..."
     },
     "nav": {
