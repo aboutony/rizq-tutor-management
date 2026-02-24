@@ -1,8 +1,9 @@
 import React from "react";
+import "./globals.css";
 
-// This root layout is intentionally minimal.
-// The actual layout logic lives in app/[locale]/layout.tsx
-// which handles i18n, theme, and viewport configuration.
+// Root layout imports globals.css to ensure Tailwind is compiled.
+// The [locale] layout provides <html> and <body> with locale-specific
+// lang/dir attributes, i18n, theme, and viewport configuration.
 export default function RootLayout({
   children,
 }: {
