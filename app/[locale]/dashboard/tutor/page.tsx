@@ -51,19 +51,19 @@ export default function TutorDashboard() {
             ) : (
                 <div className="grid grid-cols-3 gap-3">
                     {/* Confirmed */}
-                    <div className="card !p-4 space-y-1">
-                        <span className="text-3xl font-bold text-rizq-success">{summary.confirmed}</span>
-                        <p className="text-[10px] font-semibold text-rizq-text-muted uppercase tracking-wider">{t('confirmed')}</p>
+                    <div className="card !p-4 space-y-1.5 border-l-[3px] border-l-emerald-500 bg-emerald-500/5 dark:bg-emerald-500/10 overflow-hidden">
+                        <span className="text-2xl sm:text-3xl font-bold text-emerald-600 dark:text-emerald-400 tabular-nums">{summary.confirmed}</span>
+                        <p className="text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-emerald-600/80 dark:text-emerald-400/90 whitespace-nowrap overflow-hidden text-ellipsis">{t('confirmed')}</p>
                     </div>
                     {/* Pending */}
-                    <div className="card !p-4 space-y-1">
-                        <span className="text-3xl font-bold text-rizq-warning">{summary.pending}</span>
-                        <p className="text-[10px] font-semibold text-rizq-text-muted uppercase tracking-wider">{t('pending')}</p>
+                    <div className="card !p-4 space-y-1.5 border-l-[3px] border-l-amber-500 bg-amber-500/5 dark:bg-amber-500/10 overflow-hidden">
+                        <span className="text-2xl sm:text-3xl font-bold text-amber-600 dark:text-amber-400 tabular-nums">{summary.pending}</span>
+                        <p className="text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-amber-600/80 dark:text-amber-400/90 whitespace-nowrap overflow-hidden text-ellipsis">{t('pending')}</p>
                     </div>
                     {/* Available */}
-                    <div className="card !p-4 space-y-1">
-                        <span className="text-3xl font-bold text-rizq-text">{summary.available}</span>
-                        <p className="text-[10px] font-semibold text-rizq-text-muted uppercase tracking-wider">{t('available')}</p>
+                    <div className="card !p-4 space-y-1.5 border-l-[3px] border-l-blue-500 bg-blue-500/5 dark:bg-blue-500/10 overflow-hidden">
+                        <span className="text-2xl sm:text-3xl font-bold text-blue-600 dark:text-blue-400 tabular-nums">{summary.available}</span>
+                        <p className="text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-blue-600/80 dark:text-blue-400/90 whitespace-nowrap overflow-hidden text-ellipsis">{t('available')}</p>
                     </div>
                 </div>
             )}
