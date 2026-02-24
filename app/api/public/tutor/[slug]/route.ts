@@ -14,10 +14,12 @@ export async function GET(
 
     const client = await pool.connect();
     try {
-        // 1. Tutor core
+        // 1. Tutor core + profile bio
         const tutorRes = await client.query(
-            `SELECT id, name, slug, bio, latitude, longitude
-       FROM tutors WHERE slug = $1`,
+            `SELECT t.id, t.name, t.slug, tp.bio, t.latitude, t.longitude
+       FROM tutors t
+       LEFT JOIN tutor_profiles tp ON t.id = tp.tutor_id
+       WHERE t.slug = $1`,
             [slug]
         );
         if (tutorRes.rows.length === 0) {
