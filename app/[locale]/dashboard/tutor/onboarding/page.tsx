@@ -138,8 +138,20 @@ export default function OnboardingWizard() {
 
     // ── Step 4: viewing category for sub-selection ──
     const [viewingCatIndex, setViewingCatIndex] = useState(0);
+
+    // Reset viewingCatIndex when entering step 4 or when categories change
+    useEffect(() => {
+        if (step === 4) {
+            setViewingCatIndex(0);
+        }
+    }, [step]);
+
+    // Clamp index to valid range
+    const safeIndex = selectedCategories.length > 0
+        ? Math.min(viewingCatIndex, selectedCategories.length - 1)
+        : 0;
     const currentCat = selectedCategories.length > 0
-        ? CURRICULUM_SCHEMA.find((c) => c.id === selectedCategories[viewingCatIndex])
+        ? CURRICULUM_SCHEMA.find((c) => c.id === selectedCategories[safeIndex]) || null
         : null;
 
     return (
@@ -337,7 +349,7 @@ export default function OnboardingWizard() {
                                             <button
                                                 key={catId}
                                                 onClick={() => setViewingCatIndex(idx)}
-                                                className={`flex-shrink-0 flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold transition-all border ${idx === viewingCatIndex
+                                                className={`flex-shrink-0 flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold transition-all border ${idx === safeIndex
                                                     ? 'bg-rizq-primary text-white border-rizq-primary'
                                                     : hasSubs
                                                         ? 'bg-rizq-success/10 text-rizq-success border-rizq-success/30'
@@ -345,7 +357,7 @@ export default function OnboardingWizard() {
                                                     }`}
                                             >
                                                 {cat.icon} {cat.label}
-                                                {hasSubs && idx !== viewingCatIndex && <span>✓</span>}
+                                                {hasSubs && idx !== safeIndex && <span>✓</span>}
                                             </button>
                                         );
                                     })}
