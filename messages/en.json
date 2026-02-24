@@ -294,7 +294,13 @@
       "categories": "categories",
       "no_expertise": "You haven't set up your expertise yet.",
       "setup_now": "Set Up Now",
-      "edit_expertise": "Edit My Expertise"
+      "edit_expertise": "Edit My Expertise",
+      "delete_account": "Delete Account",
+      "delete_title": "Are you sure?",
+      "delete_body": "This will permanently remove your profile, schedule, and all booking history. This action cannot be undone.",
+      "delete_cancel": "Cancel",
+      "delete_confirm": "Delete Forever",
+      "delete_deleting": "Deleting..."
     }
   },
   "student_flow": {

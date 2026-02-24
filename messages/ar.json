@@ -331,7 +331,13 @@
       "categories": "فئات",
       "no_expertise": ".لم تقم بإعداد خبراتك بعد",
       "setup_now": "إعداد الآن",
-      "edit_expertise": "تعديل خبراتي"
+      "edit_expertise": "تعديل خبراتي",
+      "delete_account": "حذف الحساب",
+      "delete_title": "هل أنت متأكد؟",
+      "delete_body": ".سيتم حذف ملفك الشخصي وجدولك وجميع سجلات الحجز نهائياً. لا يمكن التراجع عن هذا الإجراء",
+      "delete_cancel": "إلغاء",
+      "delete_confirm": "حذف نهائياً",
+      "delete_deleting": "...جاري الحذف"
     }
   }
 }

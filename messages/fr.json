@@ -331,7 +331,13 @@
       "categories": "catégories",
       "no_expertise": "Vous n'avez pas encore configuré votre expertise.",
       "setup_now": "Configurer maintenant",
-      "edit_expertise": "Modifier mon expertise"
+      "edit_expertise": "Modifier mon expertise",
+      "delete_account": "Supprimer le compte",
+      "delete_title": "Êtes-vous sûr ?",
+      "delete_body": "Cela supprimera définitivement votre profil, votre emploi du temps et tout l'historique de réservation. Cette action est irréversible.",
+      "delete_cancel": "Annuler",
+      "delete_confirm": "Supprimer définitivement",
+      "delete_deleting": "Suppression..."
     }
   }
 }
