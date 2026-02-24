@@ -68,6 +68,36 @@
       "my_lessons": "Mes Leçons",
       "find_tutor": "Trouver un Tuteur",
       "upcoming": "À Venir"
+    },
+    "discovery": {
+      "subtitle": "Trouvez Votre Tuteur Idéal",
+      "search_placeholder": "Rechercher un tuteur par nom...",
+      "geo_title": "Tuteurs Près de Vous",
+      "geo_body": "Autoriser RIZQ à identifier votre position pour trouver les meilleurs tuteurs dans votre quartier ?",
+      "geo_allow": "Autoriser",
+      "geo_skip": "Passer",
+      "geo_locating": "Localisation...",
+      "categories": {
+        "all": "Tout",
+        "academic": "Mathématiques",
+        "music": "Musique",
+        "language": "Langues",
+        "fine_arts": "Beaux-Arts"
+      },
+      "sort_price": "Prix",
+      "sort_rating": "Note",
+      "sort_distance": "Près de Moi",
+      "available_today": "Disponible Aujourd'hui",
+      "min_rating": "Note",
+      "rating_options": {
+        "all": "Tout",
+        "3plus": "3.0+",
+        "4plus": "4.0+",
+        "4_5plus": "4.5+"
+      },
+      "no_results": "Aucun tuteur trouvé",
+      "no_results_hint": "Essayez d'ajuster vos filtres ou termes de recherche.",
+      "result_count": "{count} tuteur(s) trouvé(s)"
     }
   },
   "parent_flow": {

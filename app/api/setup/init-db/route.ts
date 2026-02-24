@@ -9,13 +9,13 @@ import pool from '@/lib/db';
  * SECURITY: This endpoint is idempotent — re-running it will reset all data.
  */
 export async function POST() {
-    const client = await pool.connect();
+  const client = await pool.connect();
 
-    try {
-        await client.query('BEGIN');
+  try {
+    await client.query('BEGIN');
 
-        // ── Step 1: Create schema ──
-        await client.query(`
+    // ── Step 1: Create schema ──
+    await client.query(`
       -- Enable UUID generation
       CREATE EXTENSION IF NOT EXISTS "pgcrypto";
 
@@ -52,17 +52,23 @@ export async function POST() {
       EXCEPTION WHEN duplicate_object THEN null; END $$;
     `);
 
-        // ── Step 2: Create tables ──
-        await client.query(`
+    // ── Step 2: Create tables ──
+    await client.query(`
       CREATE TABLE IF NOT EXISTS tutors (
         id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
         phone TEXT UNIQUE NOT NULL,
         name TEXT NOT NULL,
         slug TEXT UNIQUE NOT NULL,
         is_active BOOLEAN DEFAULT true,
+        latitude DECIMAL(10, 7),
+        longitude DECIMAL(10, 7),
         created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
         updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
       );
+
+      -- Add geo columns if table already exists without them
+      ALTER TABLE tutors ADD COLUMN IF NOT EXISTS latitude DECIMAL(10, 7);
+      ALTER TABLE tutors ADD COLUMN IF NOT EXISTS longitude DECIMAL(10, 7);
 
       CREATE TABLE IF NOT EXISTS tutor_profiles (
         tutor_id UUID PRIMARY KEY REFERENCES tutors(id) ON DELETE CASCADE,
@@ -172,8 +178,8 @@ export async function POST() {
       );
     `);
 
-        // ── Step 3: Create indexes ──
-        await client.query(`
+    // ── Step 3: Create indexes ──
+    await client.query(`
       CREATE INDEX IF NOT EXISTS idx_lesson_types_tutor_id ON lesson_types(tutor_id);
       CREATE INDEX IF NOT EXISTS idx_lesson_pricing_lesson_type_id ON lesson_pricing(lesson_type_id);
       CREATE INDEX IF NOT EXISTS idx_tutor_availability_tutor_id ON tutor_availability(tutor_id);
@@ -182,14 +188,14 @@ export async function POST() {
       CREATE INDEX IF NOT EXISTS idx_link_tokens_hash ON link_tokens(token_hash);
     `);
 
-        // ── Step 4: Seed demo data ──
-        // Check if data already exists
-        const existing = await client.query('SELECT COUNT(*) FROM tutors');
-        if (parseInt(existing.rows[0].count) === 0) {
-            await client.query(`
+    // ── Step 4: Seed demo data ──
+    // Check if data already exists
+    const existing = await client.query('SELECT COUNT(*) FROM tutors');
+    if (parseInt(existing.rows[0].count) === 0) {
+      await client.query(`
         WITH new_tutor AS (
-          INSERT INTO tutors (name, phone, slug)
-          VALUES ('Farah Al-Fayad', '+9613123456', 'farah-fayad')
+          INSERT INTO tutors (name, phone, slug, latitude, longitude)
+          VALUES ('Farah Al-Fayad', '+9613123456', 'farah-fayad', 33.8938, 35.5018)
           RETURNING id
         ),
         profile AS (
@@ -203,6 +209,16 @@ export async function POST() {
           SELECT id, 24, true FROM new_tutor
         ),
         rating_summary AS (
+          INSERT INTO tutor_rating_summary(tutor_id, avg_stars, rating_count)
+          SELECT id, 4.50, 12 FROM new_tutor
+        ),
+        -- Also update existing tutor geo (idempotent)
+        update_geo AS (
+          UPDATE tutors SET latitude = 33.8938, longitude = 35.5018
+          WHERE slug = 'farah-fayad' AND latitude IS NULL
+          RETURNING id
+        ),
+        rating_summary_dummy AS (
           INSERT INTO tutor_rating_summary(tutor_id)
           SELECT id FROM new_tutor
         ),
@@ -234,23 +250,23 @@ export async function POST() {
           ((SELECT id FROM new_tutor), 3, '15:00', '18:00'),
           ((SELECT id FROM new_tutor), 5, '14:00', '17:00');
       `);
-        }
-
-        await client.query('COMMIT');
-
-        return NextResponse.json({
-            success: true,
-            message: 'Database initialized successfully! Schema created and demo data seeded.',
-        });
-    } catch (error: unknown) {
-        await client.query('ROLLBACK');
-        const errMsg = error instanceof Error ? error.message : String(error);
-        console.error('[DB Init] Failed:', errMsg);
-        return NextResponse.json(
-            { success: false, message: `Database init failed: ${errMsg}` },
-            { status: 500 }
-        );
-    } finally {
-        client.release();
     }
+
+    await client.query('COMMIT');
+
+    return NextResponse.json({
+      success: true,
+      message: 'Database initialized successfully! Schema created and demo data seeded.',
+    });
+  } catch (error: unknown) {
+    await client.query('ROLLBACK');
+    const errMsg = error instanceof Error ? error.message : String(error);
+    console.error('[DB Init] Failed:', errMsg);
+    return NextResponse.json(
+      { success: false, message: `Database init failed: ${errMsg}` },
+      { status: 500 }
+    );
+  } finally {
+    client.release();
+  }
 }

@@ -63,13 +63,6 @@
     "light": "Light",
     "dark": "Dark"
   },
-  "student_flow": {
-    "dashboard": {
-      "my_lessons": "My Lessons",
-      "find_tutor": "Find a Tutor",
-      "upcoming": "Upcoming"
-    }
-  },
   "parent_flow": {
     "rating": {
       "title": "Rate Your Lesson",
@@ -245,6 +238,43 @@
       "error_invalid_code": "The code you entered is incorrect.",
       "error_rate_limit": "You are requesting codes too frequently. Please wait a moment.",
       "error_generic": "An unexpected error occurred. Please try again."
+    }
+  },
+  "student_flow": {
+    "dashboard": {
+      "my_lessons": "My Lessons",
+      "find_tutor": "Find a Tutor",
+      "upcoming": "Upcoming"
+    },
+    "discovery": {
+      "subtitle": "Find Your Perfect Tutor",
+      "search_placeholder": "Search tutors by name...",
+      "geo_title": "Tutors Near You",
+      "geo_body": "Allow RIZQ to identify your location to find the best tutors in your neighborhood?",
+      "geo_allow": "Allow",
+      "geo_skip": "Skip",
+      "geo_locating": "Locating...",
+      "categories": {
+        "all": "All",
+        "academic": "Mathematics",
+        "music": "Music",
+        "language": "Languages",
+        "fine_arts": "Fine Arts"
+      },
+      "sort_price": "Price",
+      "sort_rating": "Rating",
+      "sort_distance": "Near Me",
+      "available_today": "Available Today",
+      "min_rating": "Rating",
+      "rating_options": {
+        "all": "Any",
+        "3plus": "3.0+",
+        "4plus": "4.0+",
+        "4_5plus": "4.5+"
+      },
+      "no_results": "No tutors found",
+      "no_results_hint": "Try adjusting your filters or search terms.",
+      "result_count": "{count} tutor(s) found"
     }
   }
 }

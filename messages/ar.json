@@ -68,6 +68,36 @@
       "my_lessons": "دروسي",
       "find_tutor": "البحث عن معلم",
       "upcoming": "القادمة"
+    },
+    "discovery": {
+      "subtitle": "ابحث عن معلمك المثالي",
+      "search_placeholder": "ابحث عن معلم بالاسم...",
+      "geo_title": "معلمون بالقرب منك",
+      "geo_body": "هل تسمح لـ RIZQ بتحديد موقعك للعثور على أفضل المعلمين في منطقتك؟",
+      "geo_allow": "السماح",
+      "geo_skip": "تخطي",
+      "geo_locating": "جاري التحديد...",
+      "categories": {
+        "all": "الكل",
+        "academic": "الرياضيات",
+        "music": "الموسيقى",
+        "language": "اللغات",
+        "fine_arts": "الفنون"
+      },
+      "sort_price": "السعر",
+      "sort_rating": "التقييم",
+      "sort_distance": "بالقرب مني",
+      "available_today": "متاح اليوم",
+      "min_rating": "التقييم",
+      "rating_options": {
+        "all": "الكل",
+        "3plus": "٣.٠+",
+        "4plus": "٤.٠+",
+        "4_5plus": "٤.٥+"
+      },
+      "no_results": "لم يتم العثور على معلمين",
+      "no_results_hint": "حاول تعديل الفلاتر أو مصطلحات البحث.",
+      "result_count": "تم العثور على {count} معلم(ين)"
     }
   },
   "parent_flow": {
