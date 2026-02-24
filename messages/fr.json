@@ -275,6 +275,28 @@
       "error_invalid_code": "Le code que vous avez entré est incorrect.",
       "error_rate_limit": "Vous demandez des codes trop fréquemment. Veuillez patienter un instant.",
       "error_generic": "Une erreur inattendue est survenue. Veuillez réessayer."
+    },
+    "onboarding": {
+      "step1_title": "Bienvenue sur RIZQ !",
+      "step1_subtitle": "Commençons par votre nom. C'est ainsi que les étudiants vous trouveront.",
+      "name_label": "Votre Nom Public",
+      "name_placeholder": "ex: Farah Al-Fayad",
+      "name_min": "Le nom doit comporter au moins 2 caractères",
+      "step2_title": "Qu'enseignez-vous ?",
+      "step2_subtitle": "Sélectionnez toutes les catégories correspondant à votre expertise. Vous pouvez en choisir plusieurs.",
+      "specializations": "spécialisations",
+      "selected_count": "{count} sélectionné(s)",
+      "step3_subtitle": "Sélectionnez les domaines spécifiques que vous enseignez. Choisissez tout ce qui s'applique.",
+      "sub_selected": "{count} sélectionné(s)",
+      "other_placeholder": "Veuillez préciser...",
+      "next": "Suivant",
+      "back": "Retour",
+      "finish": "Terminer la Configuration",
+      "saving": "Enregistrement...",
+      "celebration_title": "Félicitations ! Bienvenue à bord 🎉",
+      "celebration_body": "Votre profil d'expertise est en ligne. Les étudiants peuvent maintenant vous découvrir sur RIZQ !",
+      "your_expertise": "Votre Expertise",
+      "redirecting": "Redirection vers votre tableau de bord..."
     }
   }
 }
