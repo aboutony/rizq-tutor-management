@@ -53,15 +53,23 @@ export default function ProfilePage() {
     const handleDeleteAccount = useCallback(async () => {
         setIsDeleting(true);
         try {
-            const res = await fetch('/api/tutor/account', { method: 'DELETE', credentials: 'same-origin' });
+            const res = await fetch('/api/tutor/account', {
+                method: 'DELETE',
+                credentials: 'same-origin',
+            });
+
             if (res.ok) {
+                // Hard redirect — clears all client state, cookies already cleared server-side
                 window.location.href = '/';
             } else {
-                console.error('[Delete] Failed');
+                const data = await res.json().catch(() => ({}));
+                console.error('[Delete] API returned:', res.status, data);
+                alert(data.message || 'Failed to delete account. Please try again.');
                 setIsDeleting(false);
             }
         } catch (err) {
-            console.error('[Delete] Error:', err);
+            console.error('[Delete] Network error:', err);
+            alert('Network error. Please check your connection and try again.');
             setIsDeleting(false);
         }
     }, []);
