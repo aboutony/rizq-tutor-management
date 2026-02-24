@@ -42,30 +42,37 @@ export async function POST(request: Request) {
             // 1. Update tutor name
             await client.query('UPDATE tutors SET name = $1 WHERE id = $2', [name.trim(), tutorId]);
 
-            // 2. Save service areas (districts)
-            await client.query('DELETE FROM tutor_service_areas WHERE tutor_id = $1', [tutorId]);
+            // 2. Save service areas (districts) — resilient if table doesn't exist yet
+            try {
+                await client.query('SAVEPOINT sp_districts');
+                await client.query('DELETE FROM tutor_service_areas WHERE tutor_id = $1', [tutorId]);
 
-            if (Array.isArray(districts) && districts.length > 0) {
-                for (const districtId of districts) {
-                    const district = getDistrictById(districtId);
-                    if (!district) continue;
+                if (Array.isArray(districts) && districts.length > 0) {
+                    for (const districtId of districts) {
+                        const district = getDistrictById(districtId);
+                        if (!district) continue;
 
-                    await client.query(
-                        `INSERT INTO tutor_service_areas (tutor_id, district_id, district_label, latitude, longitude)
+                        await client.query(
+                            `INSERT INTO tutor_service_areas (tutor_id, district_id, district_label, latitude, longitude)
              VALUES ($1, $2, $3, $4, $5)
              ON CONFLICT (tutor_id, district_id) DO NOTHING`,
-                        [tutorId, district.id, district.labels.en, district.lat, district.lng]
-                    );
-                }
+                            [tutorId, district.id, district.labels.en, district.lat, district.lng]
+                        );
+                    }
 
-                // Also update tutor's primary lat/lng to first selected district
-                const firstDistrict = getDistrictById(districts[0]);
-                if (firstDistrict) {
-                    await client.query(
-                        'UPDATE tutors SET latitude = $1, longitude = $2 WHERE id = $3',
-                        [firstDistrict.lat, firstDistrict.lng, tutorId]
-                    );
+                    // Also update tutor's primary lat/lng to first selected district
+                    const firstDistrict = getDistrictById(districts[0]);
+                    if (firstDistrict) {
+                        await client.query(
+                            'UPDATE tutors SET latitude = $1, longitude = $2 WHERE id = $3',
+                            [firstDistrict.lat, firstDistrict.lng, tutorId]
+                        );
+                    }
                 }
+                await client.query('RELEASE SAVEPOINT sp_districts');
+            } catch (districtErr) {
+                await client.query('ROLLBACK TO SAVEPOINT sp_districts');
+                console.warn('[Onboarding] Service areas skipped (table may not exist):', districtErr);
             }
 
             // 3. Delete existing lesson_types (idempotent re-onboard)

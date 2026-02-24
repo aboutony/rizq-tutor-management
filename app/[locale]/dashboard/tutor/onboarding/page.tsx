@@ -62,12 +62,17 @@ export default function OnboardingWizard() {
                     }),
                 });
 
-                if (!res.ok) throw new Error('Save failed');
+                if (!res.ok) {
+                    const data = await res.json().catch(() => ({}));
+                    throw new Error(data.message || 'Save failed');
+                }
 
                 setStep(5);
                 setShowCelebration(true);
-            } catch (err) {
-                console.error('[Onboarding] Save error:', err);
+            } catch (err: unknown) {
+                const msg = err instanceof Error ? err.message : 'Unknown error';
+                console.error('[Onboarding] Save error:', msg);
+                alert(`Save failed: ${msg}`);
             } finally {
                 setSaving(false);
             }
