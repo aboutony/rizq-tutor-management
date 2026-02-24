@@ -18,32 +18,40 @@ export async function POST(request: Request) {
     }
     // -------------------------
 
-    const client = await pool.connect();
-    try {
-      // For TUTOR role, check the tutors table
-      // For STUDENT_PARENT role, we accept any phone (Sprint 1 demo mode)
-      if (role === 'TUTOR') {
-        const result = await client.query('SELECT id FROM tutors WHERE phone = $1', [phone]);
-        if (result.rows.length === 0) {
-          return NextResponse.json({ message: 'User not found' }, { status: 404 });
+    // For TUTOR role, check the tutors table
+    if (role === 'TUTOR') {
+      try {
+        const client = await pool.connect();
+        try {
+          const result = await client.query('SELECT id FROM tutors WHERE phone = $1', [phone]);
+          if (result.rows.length === 0) {
+            return NextResponse.json({ message: 'User not found' }, { status: 404 });
+          }
+        } finally {
+          client.release();
         }
+      } catch (dbError) {
+        console.error('[OTP Send] Database connection failed:', dbError);
+        return NextResponse.json(
+          { message: 'Database connection failed. Please check environment configuration.' },
+          { status: 503 }
+        );
       }
-      // STUDENT_PARENT: In Sprint 1, we allow any phone number (demo mode)
-      // In production, this would check a students/parents table
-
-      // --- OTP Generation and Sending ---
-      // In a real application, you would generate a random code, store it with an expiry,
-      // and use an SMS gateway (e.g., Twilio) to send it.
-      const mockOtp = '123456';
-      console.log(`[DEV ONLY] OTP for ${phone} (role: ${role || 'TUTOR'}): ${mockOtp}`);
-      // ------------------------------------
-
-      return NextResponse.json({ message: 'OTP sent successfully' }, { status: 200 });
-    } finally {
-      client.release();
     }
+    // STUDENT_PARENT: In Sprint 1, we allow any phone number (demo mode)
+    // No database required for this flow
+
+    // --- OTP Generation and Sending ---
+    // In a real application, you would generate a random code, store it with an expiry,
+    // and use an SMS gateway (e.g., Twilio) to send it.
+    const mockOtp = '123456';
+    console.log(`[DEV ONLY] OTP for ${phone} (role: ${role || 'TUTOR'}): ${mockOtp}`);
+    // ------------------------------------
+
+    return NextResponse.json({ message: 'OTP sent successfully' }, { status: 200 });
   } catch (error) {
     console.error('OTP Send Error:', error);
     return NextResponse.json({ message: 'Internal Server Error' }, { status: 500 });
   }
 }
+

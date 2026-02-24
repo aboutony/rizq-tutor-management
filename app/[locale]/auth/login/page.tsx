@@ -146,7 +146,7 @@ export default function LoginPage() {
                                     id="phone-input"
                                     type="tel"
                                     inputMode="numeric"
-                                    pattern="[0-9]*"
+                                    pattern="[0-9\s\-\(\)]*"
                                     placeholder={t("phone_placeholder")}
                                     value={phone}
                                     onChange={(e) => setPhone(e.target.value)}
