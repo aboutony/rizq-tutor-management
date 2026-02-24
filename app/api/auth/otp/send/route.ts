@@ -30,10 +30,11 @@ export async function POST(request: Request) {
         } finally {
           client.release();
         }
-      } catch (dbError) {
-        console.error('[OTP Send] Database connection failed:', dbError);
+      } catch (dbError: unknown) {
+        const errMsg = dbError instanceof Error ? dbError.message : String(dbError);
+        console.error('[OTP Send] Database connection failed:', errMsg);
         return NextResponse.json(
-          { message: 'Database connection failed. Please check environment configuration.' },
+          { message: `Database error: ${errMsg}` },
           { status: 503 }
         );
       }
